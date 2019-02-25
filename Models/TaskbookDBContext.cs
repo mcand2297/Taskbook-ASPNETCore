@@ -3,6 +3,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Taskbook_ASPNETCore.Models{
     public class TaskbookDBContext : DbContext
     {
+
+        public TaskbookDBContext(DbContextOptions<TaskbookDBContext> options): base(options){
+            
+        }
+
         public DbSet<Activity> activities {get; set;}
         public DbSet<Response> responses {get; set;}
         public DbSet<Task> tasks {get; set;}
