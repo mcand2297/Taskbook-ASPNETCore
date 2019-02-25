@@ -25,6 +25,9 @@ namespace Taskbook_ASPNETCore.Models{
         //llave externa de Response
         public int responseId {get; set;}
 
+        //propiedad de navegacion a Response
+        public Response response {get; set;}
+
         //propiedad coleccion a TeamUser
         public List<TeamUser> teamUsers {get; set;}
 
