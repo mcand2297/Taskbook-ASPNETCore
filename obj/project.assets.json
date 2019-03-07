@@ -12408,7 +12408,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 2.2.2",
+      "Microsoft.EntityFrameworkCore.Sqlite",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -12464,7 +12464,7 @@
           },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
-            "version": "[2.2.2, )"
+            "version": "(, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
