@@ -4,6 +4,7 @@ using System.Collections.Generic;
 namespace Taskbook_ASPNETCore.Models{
     public class Response
     {
+        [Key]
         public int responseId {get; set;}
 
         [Required]

@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Taskbook_ASPNETCore.Models{
     public class Activity
-    {
+    {   
+        [Key]
         public int activityId {get; set;}
 
         [Required]

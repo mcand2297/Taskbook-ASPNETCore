@@ -10,7 +10,7 @@ namespace Taskbook_ASPNETCore.Models{
         public Task task {get; set;}
 
         //llave externa a User
-        public int userId {get; set;}
+        public string userId {get; set;}
 
         //propiedad de navegacion a User
         public User user {get; set;}
