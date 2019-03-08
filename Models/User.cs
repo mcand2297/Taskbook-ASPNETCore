@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace Taskbook_ASPNETCore.Models{
-    public class User
+    public class User: IdentityUser
     {
         [Key]
         public int userId {get; set;}

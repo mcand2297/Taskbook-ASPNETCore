@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+/*using Microsoft.EntityFrameworkCore;
 
 namespace Taskbook_ASPNETCore.Models{
     public class TaskbookDBContext : DbContext
@@ -72,4 +72,4 @@ namespace Taskbook_ASPNETCore.Models{
                 .HasForeignKey(tu => tu.userId);
         }
     }
-}
+}*/
