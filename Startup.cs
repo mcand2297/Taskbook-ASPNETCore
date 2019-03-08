@@ -26,12 +26,8 @@ namespace Taskbook_ASPNETCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-<<<<<<< HEAD
-
             var connection = "Data Source=taskbook.db";
-=======
-            var connection = "Data Source=Taskbook.db";
->>>>>>> parent of f36ec3c... Migrations
+
             services.AddDbContext<TaskbookDBContext>
             (options => options.UseSqlite(connection));
             

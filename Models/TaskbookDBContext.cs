@@ -1,7 +1,8 @@
-/*using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace Taskbook_ASPNETCore.Models{
-    public class TaskbookDBContext : DbContext
+    public class TaskbookDBContext : IdentityDbContext<User>
     {
 
         public TaskbookDBContext(DbContextOptions<TaskbookDBContext> options): base(options){
@@ -19,57 +20,52 @@ namespace Taskbook_ASPNETCore.Models{
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 
-                //Team
-                modelBuilder.Entity<Team>()
-                .HasMany(t => t.activities)
-                .WithOne(a => a.team)
-                .HasForeignKey(t => t.activityId);
+                
+            //Activity
+            modelBuilder.Entity<Activity>()
+            .HasOne(a => a.team)
+            .WithMany(t => t.activities)
+            .HasForeignKey(a => a.teamId);
 
-                //Activity
-                modelBuilder.Entity<Activity>()
-                .HasMany(a => a.responses)
-                .WithOne(r => r.activity)
-                .HasForeignKey(a => a.responseId);
+            //Task
+            modelBuilder.Entity<Task>()
+            .HasOne(t => t.activity)
+            .WithMany(a => a.tasks)
+            .HasForeignKey(t => t.activityId);
 
-                modelBuilder.Entity<Activity>()
-                .HasMany(a => a.tasks)
-                .WithOne(t => t.activity)
-                .HasForeignKey(a => a.taskId);
+            //Response
+            modelBuilder.Entity<Response>()
+            .HasOne(r => r.activity)
+            .WithMany(a => a.responses)
+            .HasForeignKey(r => r.activityId);
 
-                //Response
-                modelBuilder.Entity<Response>()
-                .HasOne(r => r.user)
-                .WithOne(u => u.response)
-                .HasForeignKey<User>(r => r.userId);
+            //TeamUser
+            modelBuilder.Entity<TeamUser>()
+            .HasKey(tu => new {tu.teamId, tu.userId});
 
+            modelBuilder.Entity<TeamUser>()
+            .HasOne(tu => tu.team)                          //muchos teamUsers tiene un team
+            .WithMany(t => t.teamUsers)                     //un team tiene muchos teamUsers
+            .HasForeignKey(tu => tu.teamId);                //un team user tiene una llave foranea de team
 
-                //TeamUser
-                modelBuilder.Entity<TeamUser>()
-                .HasKey(tu => new {tu.teamId, tu.userId});
+            modelBuilder.Entity<TeamUser>()
+            .HasOne(tu => tu.user)
+            .WithMany(u => u.teamUsers)
+            .HasForeignKey(tu => tu.userId);
 
-                modelBuilder.Entity<TeamUser>()
-                .HasOne(tu => tu.team)                          //muchos teamUsers tiene un team
-                .WithMany(t => t.teamUsers)                     //un team tiene muchos teamUsers
-                .HasForeignKey(tu => tu.teamId);                //un team user tiene una llave foranea de team
+            //TaskUser
+            modelBuilder.Entity<TaskUser>()
+            .HasKey(tu => new {tu.taskId, tu.userId});
 
-                modelBuilder.Entity<TeamUser>()
-                .HasOne(tu => tu.user)
-                .WithMany(u => u.teamUsers)
-                .HasForeignKey(tu => tu.userId);
+            modelBuilder.Entity<TaskUser>()
+            .HasOne(tu => tu.task)
+            .WithMany(t => t.taskUsers)
+            .HasForeignKey(tu => tu.taskId);
 
-                //TaskUser
-                modelBuilder.Entity<TaskUser>()
-                .HasKey(tu => new {tu.taskId, tu.userId});
-
-                modelBuilder.Entity<TaskUser>()
-                .HasOne(tu => tu.task)
-                .WithMany(t => t.taskUsers)
-                .HasForeignKey(tu => tu.taskId);
-
-                modelBuilder.Entity<TaskUser>()
-                .HasOne(tu => tu.user)
-                .WithMany(u => u.taskUsers)
-                .HasForeignKey(tu => tu.userId);
+            modelBuilder.Entity<TaskUser>()
+            .HasOne(tu => tu.user)
+            .WithMany(u => u.taskUsers)
+            .HasForeignKey(tu => tu.userId);
         }
     }
-}*/
+}
