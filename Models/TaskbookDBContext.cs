@@ -20,6 +20,7 @@ namespace Taskbook_ASPNETCore.Models{
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 
+            base.OnModelCreating(modelBuilder);
                 
             //Activity
             modelBuilder.Entity<Activity>()
@@ -38,6 +39,11 @@ namespace Taskbook_ASPNETCore.Models{
             .HasOne(r => r.activity)
             .WithMany(a => a.responses)
             .HasForeignKey(r => r.activityId);
+
+            modelBuilder.Entity<Response>()
+            .HasOne(r => r.user)
+            .WithOne(u => u.response)
+            .HasForeignKey<User>(u => u.responseId);
 
             //TeamUser
             modelBuilder.Entity<TeamUser>()

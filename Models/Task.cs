@@ -5,6 +5,7 @@ namespace Taskbook_ASPNETCore.Models{
     
     public class Task
     {
+        [Key]
         public int taskId {get; set;}
 
         [Required]

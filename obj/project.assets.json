@@ -12408,7 +12408,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
-      "Microsoft.EntityFrameworkCore.Sqlite",
+      "Microsoft.EntityFrameworkCore.Sqlite >= 2.2.2",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -12419,11 +12419,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\UdeC\\8vosemestre\\seminario\\taskbook-aspnetcore\\Taskbook-ASPNETCore.csproj",
+      "projectUniqueName": "E:\\UdeC\\8vosemestre\\seminario\\Taskbook-ASPNETCore\\Taskbook-ASPNETCore.csproj",
       "projectName": "Taskbook-ASPNETCore",
-      "projectPath": "E:\\UdeC\\8vosemestre\\seminario\\taskbook-aspnetcore\\Taskbook-ASPNETCore.csproj",
+      "projectPath": "E:\\UdeC\\8vosemestre\\seminario\\Taskbook-ASPNETCore\\Taskbook-ASPNETCore.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "E:\\UdeC\\8vosemestre\\seminario\\taskbook-aspnetcore\\obj\\",
+      "outputPath": "E:\\UdeC\\8vosemestre\\seminario\\Taskbook-ASPNETCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12464,7 +12464,7 @@
           },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
-            "version": "(, )"
+            "version": "[2.2.2, )"
           },
           "Microsoft.NETCore.App": {
             "suppressParent": "All",

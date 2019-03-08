@@ -12,7 +12,7 @@ namespace Taskbook_ASPNETCore.Models{
         public Team team {get; set;}
 
         //llave externa de User
-        public int userId {get; set;}
+        public string userId {get; set;}
 
         //propiedad navegacion a User
         public User user {get; set;}

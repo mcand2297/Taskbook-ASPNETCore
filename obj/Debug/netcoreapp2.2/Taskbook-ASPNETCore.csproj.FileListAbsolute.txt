@@ -1,0 +1,14 @@
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\bin\Debug\netcoreapp2.2\Taskbook-ASPNETCore.deps.json
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\bin\Debug\netcoreapp2.2\Taskbook-ASPNETCore.runtimeconfig.json
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\bin\Debug\netcoreapp2.2\Taskbook-ASPNETCore.runtimeconfig.dev.json
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\bin\Debug\netcoreapp2.2\Taskbook-ASPNETCore.dll
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\bin\Debug\netcoreapp2.2\Taskbook-ASPNETCore.pdb
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.csprojAssemblyReference.cache
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.csproj.CoreCompileInputs.cache
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.RazorAssemblyInfo.cache
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.RazorAssemblyInfo.cs
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.AssemblyInfoInputs.cache
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.AssemblyInfo.cs
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.RazorTargetAssemblyInfo.cache
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.dll
+E:\UdeC\8vosemestre\seminario\Taskbook-ASPNETCore\obj\Debug\netcoreapp2.2\Taskbook-ASPNETCore.pdb
