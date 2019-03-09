@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Taskbook_ASPNETCore.Controllers
@@ -10,6 +13,7 @@ namespace Taskbook_ASPNETCore.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
