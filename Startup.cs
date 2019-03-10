@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Taskbook_ASPNETCore.Models;
 namespace Taskbook_ASPNETCore
 {
@@ -37,7 +33,20 @@ namespace Taskbook_ASPNETCore
             .AddEntityFrameworkStores<TaskbookDBContext>()
             .AddDefaultTokenProviders();
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(o =>
+                 o.TokenValidationParameters = new TokenValidationParameters
+                 {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "ApiAuth:Issuer",
+                    ValidAudience = "ApiAuth:Audience",
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                    key: Encoding.UTF8.GetBytes(Configuration["ApiAuth:SecretKey"])),
+                    ClockSkew = TimeSpan.Zero
+                 });
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

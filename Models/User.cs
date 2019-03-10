@@ -4,7 +4,12 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Taskbook_ASPNETCore.Models{
     public class User: IdentityUser
-    {
+    {   
+        [Required]
+        public override string Email { get; set; }
+
+        [Required]
+        public string Password { get; set; }
 
         [DataType(DataType.DateTime)]
         public System.DateTime lastLogin {get; set;}

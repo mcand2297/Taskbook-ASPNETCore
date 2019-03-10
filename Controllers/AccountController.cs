@@ -11,8 +11,11 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Taskbook_ASPNETCore.Controllers{
+
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController: ControllerBase{
@@ -34,7 +37,7 @@ namespace Taskbook_ASPNETCore.Controllers{
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] User model){
             if(ModelState.IsValid){
-                var user = new User {UserName = model.UserName, Email = model.Email};
+                var user = new User {UserName = model.Email, Email = model.Email };
                 var result = await _userManager.CreateAsync(user, model.PasswordHash);
                 if(result.Succeeded){
                     return BuildToken(model);
@@ -69,14 +72,14 @@ namespace Taskbook_ASPNETCore.Controllers{
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["TaskbookLlave_SECRETA"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["ApiAuth:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var expiration = DateTime.UtcNow.AddHours(48);
 
             JwtSecurityToken token = new JwtSecurityToken(
-               issuer: "yourdomain.com",
-               audience: "yourdomain.com",
+               issuer: "ApiAuth:Issuer",
+               audience: "ApiAuth:Audience",
                claims: claims,
                expires: expiration,
                signingCredentials: creds);
